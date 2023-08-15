@@ -1,9 +1,19 @@
-const Buttons = () => {
+import satData from "./satData";
+import React from "react";
+import "./styling.css";
+
+const Buttons = ({filterByType, setSat, displaySats}) => {
   return (
-    <div>
-      <button>Placeholder Button</button>
-      <button>All Orbits</button>
-      </div>
+    <div className = "flex-container">
+        {displaySats.map((sat, id) => {
+          return (
+            <button onClick={() => filterByType(sat)} key={id}>
+              {sat} Orbit
+            </button>
+          );
+        })}
+      <button onClick={() => setSat(satData)}>All Orbits</button>
+    </div>
   );
 };
 
